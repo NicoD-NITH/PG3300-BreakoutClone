@@ -2,11 +2,6 @@
 
 
 
-GameEngine::GameEngine()
-{
-}
+class gameEngine {
 
-
-GameEngine::~GameEngine()
-{
-}
+};

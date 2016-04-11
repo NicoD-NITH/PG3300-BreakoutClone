@@ -3,6 +3,5 @@ class Bricks
 {
 public:
 	Bricks();
-	~Bricks();
 };
 

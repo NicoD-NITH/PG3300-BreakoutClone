@@ -3,6 +3,9 @@ class Ball
 {
 public:
 	Ball();
-	~Ball();
+	//endre retning på ballen
+	void changeDirection(int x, int y);
+	//flytte på ballen
+	void move();
 };
 

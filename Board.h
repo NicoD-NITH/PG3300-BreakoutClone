@@ -3,6 +3,5 @@ class Board
 {
 public:
 	Board();
-	~Board();
-};
 
+};

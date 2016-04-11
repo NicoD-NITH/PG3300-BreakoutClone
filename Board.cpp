@@ -6,7 +6,3 @@ Board::Board()
 {
 }
 
-
-Board::~Board()
-{
-}

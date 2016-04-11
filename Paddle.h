@@ -3,6 +3,6 @@ class Paddle
 {
 public:
 	Paddle();
-	~Paddle();
+	void move();
 };
 
