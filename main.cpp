@@ -1,6 +1,9 @@
 #include <SDL.h>
 #include <iostream>
 #include <stdio.h>
+#include "paddle.h"
+#include "Ball.h"
+
 
 const int S_Width = 640;
 const int S_Height = 480;
@@ -9,6 +12,7 @@ SDL_Window* window = NULL;
 SDL_Renderer* renderer;
 
 SDL_Surface* screenSurface = NULL;
+
 bool started();
 
 bool loadResources();
@@ -16,7 +20,7 @@ bool loadResources();
 void quit();
 
 bool started() {
-	bool success;
+	bool success = true;
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		printf("SDL could not start. SDL_Error: %s\n", SDL_GetError());
@@ -47,7 +51,7 @@ bool started() {
 }
 
 bool loadResources() {
-	bool success;
+	bool success = true;;
 
 	return success;
 }
@@ -59,7 +63,7 @@ void quit() {
 }
 
 
-int main(int argc, int argv[]) {
+int main(int argc, int **argv) {
 	if (!started()) {
 		quit();
 		return 1;
@@ -69,18 +73,24 @@ int main(int argc, int argv[]) {
 		return 1;
 	}
 	/*Initialisere spillobjekter
-	 * Ball ball;
-	 * Paddle paddle;*/
+	 * Ball ball;*/
+	 Paddle paddle;
 	
 	 //loop start
-	bool gameActive;
+	bool gameActive = true;
     while(gameActive) {
 		SDL_Event e;
 		if(SDL_PollEvent(&e)) {
-			//paddle.control(e);
+			if (e.type = SDL_KEYDOWN && e.key.repeat == 0) {
+				switch (e.key.keysym.sym) {
+				case SDLK_RIGHT: paddle.controlRight();
+				case SDLK_LEFT: paddle.controlLeft();
+				}
+			}
 			if(e.type == SDL_QUIT) {
 				gameActive = false;
 			}
+			
 		}
 		/*showBricks();
 		ball.move();
@@ -90,6 +100,7 @@ int main(int argc, int argv[]) {
 	}
 	if (!gameActive) {
 		quit();
+		return 0;
 	}
 }
 	 
@@ -126,4 +137,5 @@ bool collision(SDL_Rect a, SDL_Rect b) {
 	}
 	return true;
 }
+
 

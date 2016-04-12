@@ -1,4 +1,4 @@
-#include "Bricks.h"
+/*#include "Bricks.h"
 
 
 
@@ -8,4 +8,4 @@ public:
 	Bricks() {
 		height = 100, width = 100;
 	}
-};
+};*/

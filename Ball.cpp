@@ -1,26 +1,19 @@
 #include "Ball.h"
-#include <SDL.h>
+//#include <SDL_rect.h>
 
 
-class Ball {
-	static const int height = 50;
-	static const int width = 50;
-
-   private: 
-	   int xPos, yPos, xDirection, yDirection;
-	   SDL_Rect collider;
-
-public:
-	Ball::Ball() {
-		xPos = 75; yPos = 150;
-		xDirection = 0; yDirection = 0;
-		collider.w = width;
-		collider.h = height;
-	}
-	void changeDirection(int newX, int newY) {
+Ball::Ball() {
+	xPos = 75; yPos = 150;
+	xDirection = 0; yDirection = 0;
+	/*SDL_Rect collider;
+	collider.w = width;
+	collider.h = height;
+	collider.x = xPos;
+	collider.y = yPos;*/
+}
+	void Ball::changeDirection(int newX, int newY) {
 		xDirection = newX; yDirection = newY;
 	}
-	void move() {
+	void Ball::move() {
 		xPos += xDirection; yPos += yDirection;
 	}
-};
